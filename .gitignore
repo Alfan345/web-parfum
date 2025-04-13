@@ -1,0 +1,21 @@
+# File environment
+.env
+.env.local
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Build output
+dist/
+build/
+*.exe
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+
+# System files
+.DS_Store
+Thumbs.db
