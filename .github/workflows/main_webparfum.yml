@@ -26,8 +26,8 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm install
-          npm run migrate
-          npm run seed
+          npx knex migrate:latest
+          npx knex seed:run
           npm start
 
       - name: Zip artifact for deployment

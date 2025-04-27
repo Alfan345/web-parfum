@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "migrate": "knex migrate:latest",
-    "seed": "knex seed:run"
+    "migrate": "npx migrate:latest",
+    "seed": "npx seed:run"
   },
   "dependencies": {
     "@hapi/hapi": "^20.2.2",
