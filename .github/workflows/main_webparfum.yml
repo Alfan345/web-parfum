@@ -23,10 +23,7 @@ jobs:
       - name: Install dependencies only
         run: npm install --production
 
-      # - name: Remove unnecessary files
-      #   run: rm -rf node_modules .git
-
-      - name: Zip source code only
+      - name: Zip source code only (exclude node_modules)
         run: zip -r release.zip . -x "node_modules/*" ".git/*"
 
       - name: Upload artifact
@@ -53,6 +50,9 @@ jobs:
 
       - name: Unzip artifact
         run: unzip release.zip
+
+      - name: Install dependencies on Azure environment
+        run: npm install --production
 
       - name: Login to Azure
         uses: azure/login@v2
