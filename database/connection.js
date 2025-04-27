@@ -1,17 +1,28 @@
-const knex = require("knex");
+const sql = require('mssql');
 
-const db = knex({
-  client: "mysql2",
-  connection: {
-    host: process.env.DB_HOST || "webparfum-server.mysql.database.azure.com",
-    user: process.env.DB_USER || "czevyehtxx",
-    password: process.env.DB_PASSWORD || "",
-    database: process.env.DB_NAME || "webparfum-database",
+const config = {
+  user: process.env.DB_USER || 'ippl',
+  password: process.env.DB_PASSWORD || '1Sampai8', // Ganti dengan password asli
+  server: process.env.DB_HOST || 'parfumweb.database.windows.net',
+  database: process.env.DB_NAME || 'parfum',
+  port: parseInt(process.env.DB_PORT, 10) || 1433,
+  options: {
+    encrypt: true, // Karena Azure SQL butuh encryption
+    trustServerCertificate: false, // Wajib false di Azure
   },
   pool: {
-    min: 2,
     max: 10,
+    min: 0,
+    idleTimeoutMillis: 30000,
   },
-});
+};
+
+const db = new sql.ConnectionPool(config)
+  .connect()
+  .then(pool => {
+    console.log('Connected to SQL Server');
+    return pool;
+  })
+  .catch(err => console.log('Database Connection Failed! Bad Config: ', err));
 
 module.exports = db;
