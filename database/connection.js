@@ -1,11 +1,11 @@
 const sql = require('mssql');
 
 const config = {
-  user: process.env.DB_USER || 'ippl',
-  password: process.env.DB_PASSWORD || '1Sampai8', // Ganti dengan password asli
-  server: process.env.DB_HOST || 'parfumweb.database.windows.net',
-  database: process.env.DB_NAME || 'parfum',
-  port: parseInt(process.env.DB_PORT, 10) || 1433,
+  user: 'ippl',
+  password:'1Sampai8', // Ganti dengan password asli
+  server: 'parfumweb.database.windows.net',
+  database: 'parfum',
+  port: 1433,
   options: {
     encrypt: true, // Karena Azure SQL butuh encryption
     trustServerCertificate: false, // Wajib false di Azure
