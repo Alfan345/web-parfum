@@ -21,10 +21,10 @@ jobs:
           node-version: '20.13.1'
 
       - name: Install dependencies only
-        run: npm install
+        run: npm install --production
 
-      - name: Remove unnecessary files
-        run: rm -rf node_modules .git
+      # - name: Remove unnecessary files
+      #   run: rm -rf node_modules .git
 
       - name: Zip source code only
         run: zip -r release.zip . -x "node_modules/*" ".git/*"
