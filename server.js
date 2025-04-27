@@ -5,7 +5,7 @@ const vision = require("@hapi/vision");
 const hapiSwagger = require("hapi-swagger");
 const JWT = require("jsonwebtoken");
 const Boom = require("@hapi/boom");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const db = require("./database/connection");
 
 // Import routes
